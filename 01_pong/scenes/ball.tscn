@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cupyerhyeiyue"]
+
+[ext_resource type="Script" uid="uid://bh637vfdwismv" path="res://scripts/ball.gd" id="1_7s4qf"]
+[ext_resource type="Texture2D" uid="uid://cvrl8sqyj618q" path="res://assets/ball.png" id="2_cxlvu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
+radius = 32.01562
+
+[node name="Ball" type="CharacterBody2D" unique_id=959431822]
+script = ExtResource("1_7s4qf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1054622193]
+texture = ExtResource("2_cxlvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=994575303]
+shape = SubResource("CircleShape2D_cxlvu")
+
+[node name="ServeTimer" type="Timer" parent="." unique_id=150310268]
+one_shot = true
