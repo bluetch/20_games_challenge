@@ -98,12 +98,14 @@ func start_reset_and_serve(new_direction: Vector2) -> void:
 func start_serve(new_direction: Vector2) -> void:
 	_set_random_serve_direction(new_direction)
 	is_serving = false
-	
+
+func stop() -> void:
+	serve_timer.stop()
+	is_serving = true
+
 
 func _on_serve_timer_timeout() -> void:
 	# 計時結束後，球才開始重新移動
-	var random_y: float = randf_range(-serve_angle_range, serve_angle_range)
-	move_direction = Vector2(next_serve_direction.x, random_y).normalized()
 	_set_random_serve_direction(next_serve_direction)
 	is_serving = false
 

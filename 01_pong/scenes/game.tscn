@@ -17,8 +17,19 @@ content_margin_top = 24.0
 content_margin_right = 24.0
 content_margin_bottom = 24.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scoreboard"]
+bg_color = Color(0.04, 0.04, 0.05, 0.82)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.28)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="GamePong" type="Node2D" unique_id=1870573867]
-position = Vector2(-1, -2)
 script = ExtResource("1_vgge5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=753197552]
@@ -94,19 +105,77 @@ theme_override_constants/separation = 16
 [node name="TopBar" type="HBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox" unique_id=223033012]
 layout_mode = 2
 
-[node name="Player1ScoreLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar" unique_id=2101001296]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Player 1"
-
-[node name="TopSpacer" type="Control" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar" unique_id=32526022]
+[node name="LeftScoreSpacer" type="Control" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player2ScoreLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar" unique_id=62788491]
+[node name="ScoreboardPanel" type="PanelContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar"]
+custom_minimum_size = Vector2(540, 118)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Player 2"
+theme_override_styles/panel = SubResource("StyleBoxFlat_scoreboard")
+
+[node name="ScoreboardMargin" type="MarginContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 12
+
+[node name="ScoreboardRow" type="HBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin"]
+layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="Player1Group" type="VBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player1NameLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow/Player1Group"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.82, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "PLAYER 1"
+horizontal_alignment = 1
+
+[node name="Player1ScoreLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow/Player1Group" unique_id=2101001296]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="ScoreDivider" type="ColorRect" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow"]
+custom_minimum_size = Vector2(2, 80)
+layout_mode = 2
+color = Color(1, 1, 1, 0.35)
+
+[node name="Player2Group" type="VBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player2NameLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow/Player2Group"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72, 0.62, 1)
+theme_override_font_sizes/font_size = 18
+text = "PLAYER 2"
+horizontal_alignment = 1
+
+[node name="Player2ScoreLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow/Player2Group" unique_id=62788491]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="RightScoreSpacer" type="Control" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="StatusCenter" type="CenterContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox" unique_id=61705631]
 layout_mode = 2

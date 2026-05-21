@@ -7,6 +7,10 @@ extends CharacterBody2D
 
 var top_limit: float = 0.0
 var bottom_limit: float = 0.0
+var start_x: float = 0.0
+
+func _ready() -> void:
+	start_x = global_position.x
 
 func _physics_process(delta: float) -> void:
 	var direction: float = Input.get_axis(move_up_action, move_down_action)
@@ -21,3 +25,4 @@ func _physics_process(delta: float) -> void:
 		max_y = bottom_limit - paddle_height
 		
 	global_position.y = clamp(global_position.y, top_limit, max_y)
+	global_position.x = start_x

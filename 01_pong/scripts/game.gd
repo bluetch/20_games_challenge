@@ -85,7 +85,7 @@ func _end_game(winner_text: String) -> void:
 	# 統一處理遊戲結束時的 HUD 與球的狀態
 	is_game_over = true
 	hud_root.show_winner(winner_text)
-	ball.set_physics_process(false)
+	ball.stop()
 		
 func _on_play_again_button_pressed() -> void:
 	get_tree().reload_current_scene()
