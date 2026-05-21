@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cupyerhyeiyue"]
 
-[ext_resource type="Script" uid="uid://bh637vfdwismv" path="res://scripts/ball.gd" id="1_7s4qf"]
-[ext_resource type="Texture2D" uid="uid://cvrl8sqyj618q" path="res://assets/ball.png" id="2_cxlvu"]
+[ext_resource type="Script" uid="uid://bh637vfdwismv" path="res://01_pong/scripts/ball.gd" id="1_7s4qf"]
+[ext_resource type="Texture2D" uid="uid://cvrl8sqyj618q" path="res://01_pong/assets/ball.png" id="2_cxlvu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
 radius = 32.01562
