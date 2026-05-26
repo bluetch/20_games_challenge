@@ -69,6 +69,8 @@ unique_name_in_owner = true
 position = Vector2(1903, 484)
 move_up_action = &"p2_up"
 move_down_action = &"p2_down"
+control_mode = 1
+ball_path = NodePath("../Ball")
 
 [node name="Ball" parent="." unique_id=959431822 instance=ExtResource("2_6paha")]
 unique_name_in_owner = true
