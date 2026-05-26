@@ -39,6 +39,8 @@ func _physics_process(delta: float) -> void:
 
 		# 如果撞到的是球拍，就依照擊中位置改變反彈角度
 		if collider.is_in_group("paddles"):
+			# 通知被打到的球拍短暫變色
+			collider.flash_hit()
 			# 球拍中心點 = 根節點 y + 半個球拍高度
 			var paddle_half_height: float = collider.paddle_height / 2.0
 			var paddle_center_y: float = collider.global_position.y + paddle_half_height
@@ -65,18 +67,12 @@ func _physics_process(delta: float) -> void:
 	if global_position.x < 0.0:
 		# 發出得分 signal，通知主場景更新分數
 		scored.emit(2)
-
-		# 重新發球，下一球往右
-		start_reset_and_serve(Vector2.RIGHT)
 		return
 
 	# 如果球跑出右邊畫面，代表 Player 1 得分
 	if global_position.x > screen_size.x:
 		# 發出得分 signal，通知主場景更新分數
 		scored.emit(1)
-
-		# 重新發球，下一球往左
-		start_reset_and_serve(Vector2.LEFT)
 		return
 
 func start_reset_and_serve(new_direction: Vector2) -> void:

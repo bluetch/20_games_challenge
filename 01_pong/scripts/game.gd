@@ -68,6 +68,15 @@ func _on_ball_scored(player_id: int) -> void:
 	# 加分後立刻檢查有沒有人獲勝
 	check_winner()
 
+	# 只有在還沒 Game Over 時，才安排下一球重新發球
+	if is_game_over:
+		return
+
+	if player_id == 1:
+		ball.start_reset_and_serve(Vector2.LEFT)
+	elif player_id == 2:
+		ball.start_reset_and_serve(Vector2.RIGHT)
+
 func update_score_labels() -> void:
 	# 把最新分數交給 HUD 顯示
 	hud_root.update_scores(player_1_score, player_2_score)
@@ -82,10 +91,12 @@ func check_winner() -> void:
 		_end_game("Player 2 Wins")
 
 func _end_game(winner_text: String) -> void:
-	# 統一處理遊戲結束時的 HUD 與球的狀態
+	# 統一處理遊戲結束時的 HUD 與遊戲物件狀態
 	is_game_over = true
 	hud_root.show_winner(winner_text)
 	ball.stop()
+	left_paddle.stop()
+	right_paddle.stop()
 		
 func _on_play_again_button_pressed() -> void:
 	get_tree().reload_current_scene()

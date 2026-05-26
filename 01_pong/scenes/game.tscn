@@ -11,12 +11,6 @@ size = Vector2(1917.5, 28.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_soeby"]
 size = Vector2(1923, 24.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgge5"]
-content_margin_left = 24.0
-content_margin_top = 24.0
-content_margin_right = 24.0
-content_margin_bottom = 24.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scoreboard"]
 bg_color = Color(0.04, 0.04, 0.05, 0.82)
 border_width_left = 2
@@ -29,6 +23,12 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgge5"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+
 [node name="GamePong" type="Node2D" unique_id=1870573867]
 script = ExtResource("1_vgge5")
 
@@ -36,6 +36,11 @@ script = ExtResource("1_vgge5")
 offset_right = 1922.0
 offset_bottom = 1082.0
 color = Color(0, 0, 0, 1)
+
+[node name="LeftArea" type="ColorRect" parent="." unique_id=197257152]
+offset_right = 959.0
+offset_bottom = 1079.0
+color = Color(0, 0.11296228, 0.1214652, 1)
 
 [node name="TopWall" type="StaticBody2D" parent="." unique_id=1296799626]
 
@@ -51,6 +56,7 @@ shape = SubResource("RectangleShape2D_soeby")
 
 [node name="CenterLine" type="Line2D" parent="." unique_id=1844008485]
 points = PackedVector2Array(960, 67, 960, 1080)
+width = 1.0
 
 [node name="LeftPaddle" parent="." unique_id=862924497 groups=["paddles"] instance=ExtResource("1_c28j8")]
 unique_name_in_owner = true
@@ -102,36 +108,32 @@ theme_override_constants/margin_bottom = 24
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="TopBar" type="HBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox" unique_id=223033012]
+[node name="TopBar" type="CenterContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox" unique_id=1106529218]
 layout_mode = 2
 
-[node name="LeftScoreSpacer" type="Control" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ScoreboardPanel" type="PanelContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar"]
+[node name="ScoreboardPanel" type="PanelContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar" unique_id=809154702]
 custom_minimum_size = Vector2(540, 118)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_scoreboard")
 
-[node name="ScoreboardMargin" type="MarginContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel"]
+[node name="ScoreboardMargin" type="MarginContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel" unique_id=12236965]
 layout_mode = 2
 theme_override_constants/margin_left = 28
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 28
 theme_override_constants/margin_bottom = 12
 
-[node name="ScoreboardRow" type="HBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin"]
+[node name="ScoreboardRow" type="HBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin" unique_id=4162125]
 layout_mode = 2
 theme_override_constants/separation = 28
 alignment = 1
 
-[node name="Player1Group" type="VBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow"]
+[node name="Player1Group" type="VBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow" unique_id=1059846770]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player1NameLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow/Player1Group"]
+[node name="Player1NameLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow/Player1Group" unique_id=345517636]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.62, 0.82, 1, 1)
 theme_override_font_sizes/font_size = 18
@@ -147,17 +149,12 @@ theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
 
-[node name="ScoreDivider" type="ColorRect" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow"]
-custom_minimum_size = Vector2(2, 80)
-layout_mode = 2
-color = Color(1, 1, 1, 0.35)
-
-[node name="Player2Group" type="VBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow"]
+[node name="Player2Group" type="VBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow" unique_id=340927272]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Player2NameLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow/Player2Group"]
+[node name="Player2NameLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar/ScoreboardPanel/ScoreboardMargin/ScoreboardRow/Player2Group" unique_id=1361042736]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.72, 0.62, 1)
 theme_override_font_sizes/font_size = 18
@@ -173,21 +170,11 @@ theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
 
-[node name="RightScoreSpacer" type="Control" parent="UI/HUDRoot/SafeMargin/HUDVBox/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="StatusCenter" type="CenterContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox" unique_id=61705631]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="StatusVBox" type="VBoxContainer" parent="UI/HUDRoot/SafeMargin/HUDVBox/StatusCenter" unique_id=1787711751]
 layout_mode = 2
-
-[node name="StatusTopSpacer" type="Control" parent="UI/HUDRoot/SafeMargin/HUDVBox/StatusCenter/StatusVBox" unique_id=1821489787]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="WinnerLabel" type="Label" parent="UI/HUDRoot/SafeMargin/HUDVBox/StatusCenter/StatusVBox" unique_id=1959730933]
 layout_mode = 2
@@ -197,7 +184,13 @@ theme_override_font_sizes/font_size = 72
 text = "Ready"
 horizontal_alignment = 1
 
+[node name="StatusTopSpacer" type="Control" parent="UI/HUDRoot/SafeMargin/HUDVBox/StatusCenter/StatusVBox" unique_id=1821489787]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="GameOverCenter" type="CenterContainer" parent="UI/HUDRoot" unique_id=2086970734]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
