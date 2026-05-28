@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cod53i4ndk1ss" path="res://01_pong/scenes/paddle.tscn" id="1_c28j8"]
 [ext_resource type="Script" uid="uid://d2ia3xx4qe8qi" path="res://01_pong/scripts/game.gd" id="1_vgge5"]
 [ext_resource type="PackedScene" uid="uid://cupyerhyeiyue" path="res://01_pong/scenes/ball.tscn" id="2_6paha"]
+[ext_resource type="Texture2D" uid="uid://brisfwbbe584p" path="res://01_pong/assets/truck_blue.png" id="3_3hskl"]
 [ext_resource type="Script" uid="uid://cwqpedg70okc1" path="res://01_pong/scripts/hud_root.gd" id="4_0lq8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dy7o8"]
@@ -60,16 +61,20 @@ width = 1.0
 
 [node name="LeftPaddle" parent="." unique_id=862924497 groups=["paddles"] instance=ExtResource("1_c28j8")]
 unique_name_in_owner = true
-position = Vector2(7, 442)
+position = Vector2(30, 442.00003)
+scale = Vector2(1.5, 1.5)
 move_up_action = &"p1_up"
 move_down_action = &"p1_down"
+paddle_texture = ExtResource("3_3hskl")
 
 [node name="RightPaddle" parent="." unique_id=1113652800 groups=["paddles"] instance=ExtResource("1_c28j8")]
 unique_name_in_owner = true
-position = Vector2(1903, 484)
+position = Vector2(1856, 484.00003)
+scale = Vector2(1.5, 1.5)
 move_up_action = &"p2_up"
 move_down_action = &"p2_down"
 control_mode = 1
+paddle_texture = ExtResource("3_3hskl")
 ball_path = NodePath("../Ball")
 
 [node name="Ball" parent="." unique_id=959431822 instance=ExtResource("2_6paha")]

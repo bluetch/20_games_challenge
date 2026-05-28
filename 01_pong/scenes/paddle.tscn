@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cod53i4ndk1ss"]
 
 [ext_resource type="Script" uid="uid://xowyermoq3qn" path="res://01_pong/scripts/paddle.gd" id="1_3xiby"]
+[ext_resource type="Texture2D" uid="uid://brisfwbbe584p" path="res://01_pong/assets/truck_blue.png" id="2_7j6xs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31swd"]
 size = Vector2(20, 120)
@@ -8,9 +9,9 @@ size = Vector2(20, 120)
 [node name="Paddle" type="CharacterBody2D" unique_id=862924497]
 script = ExtResource("1_3xiby")
 
-[node name="Visual" type="ColorRect" parent="." unique_id=1523244628]
-offset_right = 20.0
-offset_bottom = 120.0
+[node name="Visual" type="Sprite2D" parent="." unique_id=1416032424]
+position = Vector2(10, 59)
+texture = ExtResource("2_7j6xs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=58734819]
 position = Vector2(10, 60)
